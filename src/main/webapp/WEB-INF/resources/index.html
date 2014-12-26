@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html data-ng-app="ledshop">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+
+    <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap-theme.css">
+<!--    <link rel="stylesheet" type="text/css" href="resources/css/angular-xeditable/xeditable.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/custom/styles.css">-->
+</head>
+
+
+<body >
+<div data-ng-controller="NavController">
+
+    <h2>Main page</h2>
+    <h4>{{message}}</h4>
+    <a href="#/main">main</a>
+    <a href="#/login">login</a>
+    <a href="#/guests">guests</a>
+
+</div>
+
+<div data-ng-view></div>
+
+
+<!--<script src="resources/js/jquery/jquery.js"></script>-->
+<script src="resources/lib/angular/angular.js"></script>
+<script src="resources/lib/angular/angular-route.js"></script>
+<!--<script src="resources/lib/bootstrap/js/bootstrap.js"></script>-->
+<!--<script src="resources/js/angular-xeditable/xeditable.js"></script>-->
+<script src="resources/lib/angular-local-storage/angular-local-storage.js"></script>
+<script src="resources/init/app.js"></script>
+<script src="resources/init/config.js"></script>
+<script src="resources/init/run.js"></script>
+<script src="resources/lib/js/helper.js"></script>
+<script src="resources/controllers/nav.js"></script>
+<script src="resources/controllers/guest.js"></script>
+<script src="resources/controllers/login.js"></script>
+
+
+
+<script src="resources/services/serv.js"></script>
+<script src="resources/services/guestService.js"></script>
+
+
+</body>
+</html>
