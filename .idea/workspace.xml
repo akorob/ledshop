@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3066131-08df-41f0-bb06-3d92d7807f7f" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\work\java\LedShop\src\main\webapp\WEB-INF\resources\controllers\guest.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/init/app.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/init/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/init/config.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/init/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/lib/css/main.css" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/lib/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/partials/main.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/partials/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/ledshop_dbmodel.mwb.bak" afterPath="$PROJECT_DIR$/sql/ledshop_dbmodel.mwb.bak" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/ledshop_dbmodel.mwb" afterPath="$PROJECT_DIR$/sql/ledshop_dbmodel.mwb" />
     </list>
     <ignored path="LedShop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -528,6 +523,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -950,16 +946,16 @@
       <created>1419852547723</created>
       <option name="number" value="Default" />
       <updated>1419852547723</updated>
-      <workItem from="1419852548215" duration="13078000" />
+      <workItem from="1419852548215" duration="13677000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13078000" />
+    <option name="totallyTimeSpent" value="13677000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
