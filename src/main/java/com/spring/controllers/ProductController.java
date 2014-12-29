@@ -3,37 +3,32 @@ package com.spring.controllers;
 /**
  * Created by Andrey on 26.12.2014.
  */
-import java.util.Date;
 import java.util.List;
 
-import com.spring.persistence.entity.Guest;
-import com.spring.service.GuestService;
+import com.spring.model.ProductDto;
+import com.spring.persistence.domain.Product;
+import com.spring.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/guest")
-public class GuestController {
+@RequestMapping("/product")
+public class ProductController {
 
     @Autowired
-    private GuestService guestService;
+    private ProductService productService;
 
 //    @PreAuthorize("isAuthenticated()")
-    @RequestMapping(value="/guests", method = RequestMethod.GET)
-    public @ResponseBody  List<Guest> getGuests() {
+    @RequestMapping(value="/getAll", method = RequestMethod.GET)
+    public List<ProductDto> getGuests() {
 
-        List<Guest> list = guestService.findAllGuests();
-        for(Guest g: list){
-            System.out.println(g);
-        }
+        List<ProductDto> list = productService.findAll();
 
         return list;
     }
+/*
 
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)
     public void addContact(@ModelAttribute("contact")
@@ -44,5 +39,6 @@ public class GuestController {
             guestService.save(new Guest(name));
 
     }
+*/
 
 }
