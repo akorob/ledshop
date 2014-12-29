@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html data-ng-app="ledshop">
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home | E-Shopper</title>
+    <link href="/resources/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/resources/lib/css/main.css" rel="stylesheet">
+    <link href="/resources/lib/css/responsive.css" rel="stylesheet">
 
-
-    <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap-theme.css">
-<!--    <link rel="stylesheet" type="text/css" href="resources/css/angular-xeditable/xeditable.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/custom/styles.css">-->
-</head>
-
-
+    <!--<link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">-->
+</head><!--/head-->
 <body >
+
+
+<!--
+
 <div data-ng-controller="NavController">
 
     <h2>Main page</h2>
@@ -24,14 +33,333 @@
 </div>
 
 <div data-ng-view></div>
+-->
+
+
+<header id="header"><!--header-->
+    <div class="header_top"><!--header_top-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="contactinfo">
+                        <ul class="nav nav-pills">
+                            <li><a href="#"><i class="fa fa-phone"></i> +7 978 8822 821</a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="social-icons pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#"><i class="fa fa-vk"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header_top-->
+
+    <div class="header-middle"><!--header-middle-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="logo pull-left">
+                        <a href="/"><img height="50px;" src="/resources/lib/img/template/led_logo.png" alt="" /></a>
+                    </div>
+                    <div class="btn-group pull-right">
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="shop-menu pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                            <li><a href="login.html"><i class="fa fa-lock"></i> Личный кабинет</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header-middle-->
+
+    <div class="header-bottom"><!--header-bottom-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="mainmenu pull-left">
+                        <ul class="nav navbar-nav collapse navbar-collapse">
+                            <li><a href="/" class="active">Главная</a></li>
+                            <li><a href="/">Блог</a></li>
+                            <li><a href="/">Справка</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="search_box pull-right">
+                        <input type="text" placeholder="Поиск"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header-bottom-->
+</header><!--/header-->
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <div class="panel-group category-products"><!--category-productsr-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">Лампы</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">Прожекторы</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">Светильники</a></h4>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="#">Комплектующие</a></h4>
+                            </div>
+                        </div>
+                    </div><!--/category-products-->
+
+
+
+                    <div class="shipping text-center"><!--shipping-->
+                        <a href="/" ><img width="265px;" src="/resources/lib/img/template/banner.jpg" alt="" /></a>
+                    </div><!--/shipping-->
+
+                </div>
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items"><!--features_items-->
+
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="/resources/lib/img/items/lamp1.jpg" alt="" />
+                                    <h2><i class="fa fa-rub"></i> 600.00</h2>
+                                    <p>Просто лампочка E27</p>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
+                                </div>
+                            </div>
+                            <div class="choose">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>В корзину</a></li>
+                                    <li><a href="#"><i class="fa fa-th"></i>Сравнить</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="/resources/lib/img/items/lamp3.jpg" alt="" />
+                                    <h2><i class="fa fa-rub"></i> 1100.00</h2>
+                                    <p>
+                                        Просто лампочка E27
+                                    </p>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
+                                </div>
+                            </div>
+                            <div class="choose">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>В корзину</a></li>
+                                    <li><a href="#"><i class="fa fa-th"></i>Сравнить</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="/resources/lib/img/items/lamp2.png" alt="" />
+                                    <h2><i class="fa fa-rub"></i> 500.00</h2>
+                                    <p>Очень крутая лампочка E27 10W</p>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
+                                </div>
+                            </div>
+                            <div class="choose">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>В корзину</a></li>
+                                    <li><a href="#"><i class="fa fa-th"></i>Сравнить</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="/resources/lib/img/items/lamp4.jpg" alt="" />
+                                    <h2><i class="fa fa-rub"></i> 200.00</h2>
+                                    <p>Хуйня какаето, Е27</p>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
+                                </div>
+                                <img src="/resources/lib/img/tmp/home/sale.png" class="new" alt="" />
+                            </div>
+                            <div class="choose">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>В корзину</a></li>
+                                    <li><a href="#"><i class="fa fa-th"></i>Сравнить</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="/resources/lib/img/items/lamp3.jpg" alt="" />
+                                    <h2><i class="fa fa-rub"></i> 1100.00</h2>
+                                    <p>
+                                        Просто лампочка E27
+                                    </p>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
+                                </div>
+                                <img src="/resources/lib/img/tmp/home/new.png" class="new" alt="" />
+                            </div>
+                            <div class="choose">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>В корзину</a></li>
+                                    <li><a href="#"><i class="fa fa-th"></i>Сравнить</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="/resources/lib/img/items/lamp2.png" alt="" />
+                                    <h2><i class="fa fa-rub"></i> 500.00</h2>
+                                    <p>Очень крутая лампочка E27 10W</p>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
+                                </div>
+                            </div>
+                            <div class="choose">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>В корзину</a></li>
+                                    <li><a href="#"><i class="fa fa-th"></i>Сравнить</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--features_items-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer"><!--Footer-->
+    <div class="footer-widget">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>Покупателю</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">Гарантия и возврат</a></li>
+                            <li><a href="#">Адреса магазинов</a></li>
+                            <li><a href="#">Состояние заказа</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>Навигация</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">Карта сайта</a></li>
+                            <li><a href="#">Справка</a></li>
+                            <li><a href="#">Блог</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>Сотрудничество</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">Оптовые продажи</a></li>
+                            <li><a href="#">Вакансии</a></li>
+                            <li><a href="#">Реклама</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>О нас</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">Налоговая информация</a></li>
+                            <li><a href="#">Производство</a></li>
+                            <li><a href="#">Сертификаты</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-sm-offset-1">
+                    <div class="single-widget">
+                        <h2>Рассылка</h2>
+                        <form action="#" class="searchform">
+                            <input type="email" placeholder="Укажите email flhtc" />
+                            <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+                            <p>Рекламно-информацонная рассылка<br />подпишись, мож че пришлем...</p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <p class="pull-left">Копирайт © 2015 Фабрика света Inc. Все права нарушены.</p>
+                <p class="pull-right">Разработано в  <span><a target="_blank" href="/">Acme</a></span></p>
+            </div>
+        </div>
+    </div>
+
+</footer><!--/Footer-->
+
+
+
+
+
+
+
+
 
 
 <!--<script src="resources/js/jquery/jquery.js"></script>-->
-<script src="resources/lib/angular/angular.js"></script>
-<script src="resources/lib/angular/angular-route.js"></script>
+<script src="resources/lib/angular/angular.min.js"></script>
+<script src="resources/lib/angular/angular-route.min.js"></script>
 <!--<script src="resources/lib/bootstrap/js/bootstrap.js"></script>-->
 <!--<script src="resources/js/angular-xeditable/xeditable.js"></script>-->
-<script src="resources/lib/angular-local-storage/angular-local-storage.js"></script>
+<script src="resources/lib/angular-local-storage/angular-local-storage.min.js"></script>
 <script src="resources/init/app.js"></script>
 <script src="resources/init/config.js"></script>
 <script src="resources/init/run.js"></script>
