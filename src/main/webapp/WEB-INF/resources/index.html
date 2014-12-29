@@ -75,8 +75,8 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
-                            <li><a href="login.html"><i class="fa fa-lock"></i> Личный кабинет</a></li>
+                            <li><a href="#/cart"><i class="fa fa-shopping-cart"></i> Корзина</a></li>
+                            <li><a href="#/login"><i class="fa fa-lock"></i> Личный кабинет</a></li>
                         </ul>
                     </div>
                 </div>
@@ -117,165 +117,24 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
-                <div class="left-sidebar">
-                    <div class="panel-group category-products"><!--category-productsr-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Лампы</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Прожекторы</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Светильники</a></h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Комплектующие</a></h4>
-                            </div>
-                        </div>
-                    </div><!--/category-products-->
-
-
-
-                    <div class="shipping text-center"><!--shipping-->
-                        <a href="/" ><img width="265px;" src="/resources/lib/img/template/banner.jpg" alt="" /></a>
-                    </div><!--/shipping-->
+            <div class="col-sm-3" >
+                <div data-ng-include data-src="'resources/partials/leftMenu.html'">
 
                 </div>
+
             </div>
 
-            <div class="col-sm-9 padding-right">
-                <div class="features_items"><!--features_items-->
+            <div class="col-sm-9 padding-right" data-ng-view>
 
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="/resources/lib/img/items/lamp1.jpg" alt="" />
-                                    <h2><i class="fa fa-rub"></i> 600.00</h2>
-                                    <p>Просто лампочка E27</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
-                                </div>
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>В корзину</a></li>
-                                    <li><a href="#"><i class="fa fa-th"></i>Сравнить</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="/resources/lib/img/items/lamp3.jpg" alt="" />
-                                    <h2><i class="fa fa-rub"></i> 1100.00</h2>
-                                    <p>
-                                        Просто лампочка E27
-                                    </p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
-                                </div>
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>В корзину</a></li>
-                                    <li><a href="#"><i class="fa fa-th"></i>Сравнить</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="/resources/lib/img/items/lamp2.png" alt="" />
-                                    <h2><i class="fa fa-rub"></i> 500.00</h2>
-                                    <p>Очень крутая лампочка E27 10W</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
-                                </div>
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>В корзину</a></li>
-                                    <li><a href="#"><i class="fa fa-th"></i>Сравнить</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="/resources/lib/img/items/lamp4.jpg" alt="" />
-                                    <h2><i class="fa fa-rub"></i> 200.00</h2>
-                                    <p>Хуйня какаето, Е27</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
-                                </div>
-                                <img src="/resources/lib/img/tmp/home/sale.png" class="new" alt="" />
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>В корзину</a></li>
-                                    <li><a href="#"><i class="fa fa-th"></i>Сравнить</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="/resources/lib/img/items/lamp3.jpg" alt="" />
-                                    <h2><i class="fa fa-rub"></i> 1100.00</h2>
-                                    <p>
-                                        Просто лампочка E27
-                                    </p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
-                                </div>
-                                <img src="/resources/lib/img/tmp/home/new.png" class="new" alt="" />
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>В корзину</a></li>
-                                    <li><a href="#"><i class="fa fa-th"></i>Сравнить</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="/resources/lib/img/items/lamp2.png" alt="" />
-                                    <h2><i class="fa fa-rub"></i> 500.00</h2>
-                                    <p>Очень крутая лампочка E27 10W</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
-                                </div>
-                            </div>
-                            <div class="choose">
-                                <ul class="nav nav-pills nav-justified">
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>В корзину</a></li>
-                                    <li><a href="#"><i class="fa fa-th"></i>Сравнить</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--features_items-->
+
             </div>
         </div>
     </div>
 </section>
 
 <footer id="footer"><!--Footer-->
+
     <div class="footer-widget">
         <div class="container">
             <div class="row">
@@ -355,8 +214,10 @@
 
 
 <!--<script src="resources/js/jquery/jquery.js"></script>-->
-<script src="resources/lib/angular/angular.min.js"></script>
-<script src="resources/lib/angular/angular-route.min.js"></script>
+<script src="resources/lib/angular/angular.js"></script>
+<script src="resources/lib/angular/angular-route.js"></script>
+<script src="resources/lib/angular-strap/angular-strap.js"></script>
+<script src="resources/lib/angular-strap/angular-strap.tpl.js"></script>
 <!--<script src="resources/lib/bootstrap/js/bootstrap.js"></script>-->
 <!--<script src="resources/js/angular-xeditable/xeditable.js"></script>-->
 <script src="resources/lib/angular-local-storage/angular-local-storage.min.js"></script>
@@ -365,7 +226,8 @@
 <script src="resources/init/run.js"></script>
 <script src="resources/lib/js/helper.js"></script>
 <script src="resources/controllers/nav.js"></script>
-<script src="resources/controllers/guest.js"></script>
+<script src="resources/controllers/details.js"></script>
+<script src="resources/controllers/cart.js"></script>
 <script src="resources/controllers/login.js"></script>
 
 

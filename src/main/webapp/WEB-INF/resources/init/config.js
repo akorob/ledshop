@@ -16,14 +16,19 @@ app.config([ '$routeProvider', '$httpProvider', 'localStorageServiceProvider',
         .when('/main', {
             templateUrl: 'resources/partials/main.html'
         })
-        .when('/guests', {
-            controller: 'GuestController',
-            templateUrl: 'resources/partials/guest.html'
+        .when('/details', {
+            controller: 'DetailsController',
+            templateUrl: 'resources/partials/product-details.html'
         })
         .when('/login', {
             controller: 'LoginController',
             templateUrl: 'resources/partials/login.html'
         })
+        .when('/cart', {
+            controller: 'CartController',
+            templateUrl: 'resources/partials/cart.html'
+        })
+
         .otherwise({ redirectTo : "/main"});
 
 

@@ -1,0 +1,136 @@
+    <div class="product-details"><!--product-details-->
+        <div class="col-sm-5">
+            <div class="view-product">
+                <img src="/resources/lib/img/items/lamp1.jpg" alt="">
+                <h3>ZOOM</h3>
+            </div>
+            <div id="similar-product" class="carousel slide" data-ride="carousel">
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item next left">
+                        <a href=""><img src="/resources/lib/img/tmp/product-details/similar1.jpg" alt=""></a>
+                        <a href=""><img src="/resources/lib/img/tmp/product-details/similar2.jpg" alt=""></a>
+                        <a href=""><img src="/resources/lib/img/tmp/product-details/similar3.jpg" alt=""></a>
+                    </div>
+                    <div class="item">
+                        <a href=""><img src="/resources/lib/img/tmp/product-details/similar1.jpg" alt=""></a>
+                        <a href=""><img src="/resources/lib/img/tmp/product-details/similar2.jpg" alt=""></a>
+                        <a href=""><img src="/resources/lib/img/tmp/product-details/similar3.jpg" alt=""></a>
+                    </div>
+                    <div class="item active left">
+                        <a href=""><img src="/resources/lib/img/tmp/product-details/similar1.jpg" alt=""></a>
+                        <a href=""><img src="/resources/lib/img/tmp/product-details/similar2.jpg" alt=""></a>
+                        <a href=""><img src="/resources/lib/img/tmp/product-details/similar3.jpg" alt=""></a>
+                    </div>
+
+                </div>
+
+                <!-- Controls -->
+                <a class="left item-control" href="#similar-product" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="right item-control" href="#similar-product" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-sm-7">
+            <div class="product-information"><!--/product-information-->
+                <img src="/resources/lib/img/tmp/product-details/new.jpg" class="newarrival" alt="">
+                <h2>Anne Klein Sleeveless Colorblock Scuba</h2>
+                <p>Web ID: 1089772</p>
+          <!--      <img src="/resources/lib/img/tmp/product-details/rating.png" alt="">-->
+								<span>
+									<span>US $59</span>
+									<label>Quantity:</label>
+									<input type="text" value="3">
+									<button type="button" class="btn btn-fefault cart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        Add to cart
+                                    </button>
+								</span>
+                <p><b>Availability:</b> In Stock</p
+                <a href=""><img src="/resources/lib/img/tmp/product-details/share.png" class="share img-responsive" alt=""></a>
+            </div><!--/product-information-->
+        </div>
+    </div><!--/product-details-->
+
+    <div class="category-tab shop-details-tab" data-ng-init="tabs.cur=0"><!--category-tab-->
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+                <li data-ng-class="tabs.cur==0?'active':''"><a href="" data-toggle="tab" data-ng-click="tabs.cur=0" >Подробная информация</a></li>
+                <li data-ng-class="tabs.cur==1?'active':''"><a href="" data-toggle="tab" data-ng-click="tabs.cur=1">Обзоры (2)</a></li>
+                <li data-ng-class="tabs.cur==2?'active':''"><a href="" data-toggle="tab" data-ng-click="tabs.cur=2">Комментарии (5)</a></li>
+            </ul>
+        </div>
+<!--        <div class="tab-content" data-ng-include="tabs.urls[tabs.current]">
+
+        </div>-->
+       <div class="tab-content">
+            <div class="tab-pane fade active in"  data-ng-show="tabs.cur==0" >
+                <div class="col-sm-12">
+                    <div style="padding-left: 20px; padding-right: 20px">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit
+                            esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade active in" id="reviews"  data-ng-show="tabs.cur==1">
+                <div class="col-sm-12">
+                    <div style="padding-bottom: 10px">
+                        <ul>
+                            <li><span><i class="fa fa-user"></i>EUGEN</span></li>
+                            <li><span><i class="fa fa-clock-o"></i>12:41 31 декабря 2014</span></li>
+                        </ul>
+                        <p>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure
+                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+           <div class="tab-pane fade active in" id="reviews" data-ng-show="tabs.cur==2">
+               <div class="col-sm-12">
+                   <div style="padding-bottom: 10px">
+                       <ul>
+                           <li><span><i class="fa fa-user"></i>EUGEN</span></li>
+                           <li><span><i class="fa fa-clock-o"></i>12:41 31 декабря 2014</span></li>
+                       </ul>
+                       <p>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                           et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation
+                           ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure
+                           dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                           nulla pariatur.
+                       </p>
+                   </div>
+
+                   <p><b>Оставьте свой комментарий</b></p>
+                   <form action="#">
+                        <span>
+                            <input type="text" placeholder="Your Name">
+                            <input type="email" placeholder="Email Address">
+                        </span>
+                       <textarea name=""></textarea>
+                       <button type="button" class="btn btn-default pull-right">
+                           Submit
+                       </button>
+                   </form>
+               </div>
+           </div>
+
+        </div>
+    </div><!--/category-tab-->
+
+
+

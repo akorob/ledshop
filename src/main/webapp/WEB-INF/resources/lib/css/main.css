@@ -990,7 +990,7 @@ h2.title {
 .product-details {
   margin-bottom: 40px;
   overflow: hidden;
-  margin-top: 10px;
+/*  margin-top: 10px;*/
 }
 
 
@@ -1131,7 +1131,7 @@ h2.title {
   background: #FFFFFF;
   border: 0 none;
   list-style: none outside none;
-  margin: 0 0 20px;
+  margin: 0 0 0px;
   padding: 0;
 }
 
@@ -1139,14 +1139,14 @@ h2.title {
 	display:inline-block;
 }
 
-#reviews ul li a {
+#reviews ul li span{
   color: #696763;
   display: block;
   font-size: 14px;
   padding-right: 15px;
 }
 
-#reviews ul li a i{
+#reviews ul li i{
 	color:#FE980F;
 	padding-right:8px;
 }
@@ -1463,7 +1463,7 @@ h2.title {
 
 .cart_delete  {
   display: block;
-  margin-right: -12px;
+ /* margin-right: -12px;*/
   overflow: hidden;
 }
 
