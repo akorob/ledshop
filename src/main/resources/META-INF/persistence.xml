@@ -9,13 +9,13 @@
 
         <properties>
             <property name="hibernate.connection.driver_class"     value="com.mysql.jdbc.Driver" />
-            <property name="hibernate.connection.url"             value="jdbc:mysql://localhost:3306/guests" />
+            <property name="hibernate.connection.url"             value="jdbc:mysql://localhost:3306/ledshop" />
             <property name="hibernate.connection.username"         value="test" />
             <property name="hibernate.connection.password"         value="test" />
             <property name="hibernate.dialect"                     value="org.hibernate.dialect.MySQLDialect"  />
             <property name="hibernate.show_sql"                 value="true" />
             <!--  set to "update" or "create" to auto create table, manually create DB Guests FIRST-->
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.hbm2ddl.auto" value="validate" />
         </properties>
 
     </persistence-unit>
