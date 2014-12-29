@@ -5,11 +5,10 @@ package com.spring.controllers;
  */
 import java.util.List;
 
+import com.spring.controllers.HttpExceptions.BadRequestException;
 import com.spring.model.ProductDto;
-import com.spring.persistence.domain.Product;
 import com.spring.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -28,6 +27,16 @@ public class ProductController {
 
         return list;
     }
+
+ @RequestMapping(value="/get", method = RequestMethod.GET)
+    public List<ProductDto> get()  {
+
+        List<ProductDto> list = productService.findAll();
+        throw new BadRequestException();
+
+    }
+
+
 /*
 
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)

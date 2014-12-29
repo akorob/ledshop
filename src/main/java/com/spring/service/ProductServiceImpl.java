@@ -29,6 +29,9 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<ProductDto> findAll() {
         List <ProductDto> list = new ArrayList<>();
+        for (Product p:productDao.getAll()){
+            list.add(new ProductDto(p));
+        }
         return list;
     }
 }
