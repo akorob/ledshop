@@ -1,28 +1,22 @@
 package com.spring.persistence.domain;
 
-import org.hibernate.validator.cfg.defs.DecimalMaxDef;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
-
-import static javax.persistence.GenerationType.IDENTITY;
 
 /**
- * Created by Andrey on 29.12.2014.
+ * Created by Andrey on 30.12.2014.
  */
 @Entity
-@Table(name="prices")
-public class Price implements Serializable {
+@Table(name="order_details")
+public class OrderDetail implements Serializable {
     private int id;
     private BigDecimal price;
-    private Date date;
-    private boolean enable;
+    private int quantity;
     private Product product;
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -39,25 +33,16 @@ public class Price implements Serializable {
         this.price = price;
     }
 
-    public Date getDate() {
-        return date;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    @Column(columnDefinition = "BIT")
-    public boolean isEnable() {
-        return enable;
-    }
-
-    public void setEnable(boolean enable) {
-        this.enable = enable;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     @ManyToOne
-    @JoinColumn(name="product_id")
+    @JoinColumn(name="products_id")
     public Product getProduct() {
         return product;
     }
@@ -68,11 +53,10 @@ public class Price implements Serializable {
 
     @Override
     public String toString() {
-        return "Price{" +
+        return "OrderDetail{" +
                 "id=" + id +
                 ", price=" + price +
-                ", date=" + date +
-                ", enable=" + enable +
+                ", quantity=" + quantity +
                 ", product=" + product +
                 '}';
     }

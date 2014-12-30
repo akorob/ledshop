@@ -1,28 +1,24 @@
 package com.spring.persistence.domain;
 
-import org.hibernate.validator.cfg.defs.DecimalMaxDef;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 /**
- * Created by Andrey on 29.12.2014.
+ * Created by Andrey on 30.12.2014.
  */
 @Entity
-@Table(name="prices")
-public class Price implements Serializable {
+@Table(name="reviews")
+public class Review implements Serializable {
     private int id;
-    private BigDecimal price;
     private Date date;
+    private String username;
+    private String text;
     private boolean enable;
     private Product product;
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -31,20 +27,29 @@ public class Price implements Serializable {
         this.id = id;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Column(columnDefinition = "TEXT")
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     @Column(columnDefinition = "BIT")
@@ -57,7 +62,7 @@ public class Price implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name="product_id")
+    @JoinColumn(name="products_id")
     public Product getProduct() {
         return product;
     }
@@ -68,10 +73,11 @@ public class Price implements Serializable {
 
     @Override
     public String toString() {
-        return "Price{" +
+        return "Review{" +
                 "id=" + id +
-                ", price=" + price +
                 ", date=" + date +
+                ", username='" + username + '\'' +
+                ", text='" + text + '\'' +
                 ", enable=" + enable +
                 ", product=" + product +
                 '}';

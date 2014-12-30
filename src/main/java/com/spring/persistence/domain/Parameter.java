@@ -4,23 +4,21 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
-import static javax.persistence.GenerationType.IDENTITY;
 
 /**
- * Created by Andrey on 29.12.2014.
+ * Created by Andrey on 30.12.2014.
  */
 @Entity
-@Table( name = "categories" )
-public class Category implements Serializable {
+@Table(name="parameters")
+public class Parameter implements Serializable {
     private int id;
     private String name;
-    private String url;
     private boolean enable;
     private int position;
-    private Collection<Product> products = new HashSet<>();
+    private Collection<ParameterOfProduct> parameterOfProductCollection = new HashSet<>();
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -37,21 +35,13 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     @Column(columnDefinition = "BIT")
-    public boolean enable() {
+    public boolean isEnable() {
         return enable;
     }
 
-    public void setEnable(boolean isActive) {
-        this.enable = isActive;
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 
     public int getPosition() {
@@ -62,23 +52,23 @@ public class Category implements Serializable {
         this.position = position;
     }
 
-    @OneToMany(mappedBy = "category")
-    public Collection<Product> getProducts() {
-        return products;
+    @OneToMany(mappedBy = "parameter")
+    public Collection<ParameterOfProduct> getParameterOfProductCollection() {
+        return parameterOfProductCollection;
     }
 
-    public void setProducts(Collection<Product> products) {
-        this.products = products;
+    public void setParameterOfProductCollection(Collection<ParameterOfProduct> parameterOfProductCollection) {
+        this.parameterOfProductCollection = parameterOfProductCollection;
     }
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "Parameter{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", url='" + url + '\'' +
-                ", isActive=" + enable +
+                ", enable=" + enable +
                 ", position=" + position +
+                ", parameterOfProductCollection=" + parameterOfProductCollection +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package com.spring.persistence.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -11,8 +12,8 @@ import static javax.persistence.GenerationType.IDENTITY;
  * Created by Andrey on 29.12.2014.
  */
 @Entity
-@Table( name = "product" )
-public class Product {
+@Table( name = "products" )
+public class Product implements Serializable {
     private int id;
     private String name;
     private String sku;
@@ -24,6 +25,10 @@ public class Product {
     private Collection<Media> medias = new HashSet<>();
     private Collection<Photo> photos = new HashSet<>();
     private Collection<Price> prices = new HashSet<>();
+    private Collection<Review> reviews = new HashSet<>();
+    private Collection<OrderDetail> orderDetails = new HashSet<>();
+    private Collection<Comment> comments = new HashSet<>();
+    private Collection<ParameterOfProduct> parameterOfProductCollection = new HashSet<>();
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -120,6 +125,42 @@ public class Product {
 
     public void setPrices(Collection<Price> prices) {
         this.prices = prices;
+    }
+
+    @OneToMany(mappedBy = "product")
+    public Collection<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Collection<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    @OneToMany(mappedBy = "product")
+    public Collection<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(Collection<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+    @OneToMany(mappedBy = "product")
+    public Collection<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Collection<Comment> comments) {
+        this.comments = comments;
+    }
+
+    @OneToMany(mappedBy = "product")
+    public Collection<ParameterOfProduct> getParameterOfProductCollection() {
+        return parameterOfProductCollection;
+    }
+
+    public void setParameterOfProductCollection(Collection<ParameterOfProduct> parameterOfProductCollection) {
+        this.parameterOfProductCollection = parameterOfProductCollection;
     }
 
     @Override

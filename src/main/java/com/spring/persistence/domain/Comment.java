@@ -1,25 +1,23 @@
 package com.spring.persistence.domain;
 
-import org.hibernate.validator.cfg.defs.DecimalMaxDef;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**
- * Created by Andrey on 29.12.2014.
+ * Created by Andrey on 30.12.2014.
  */
 @Entity
-@Table(name="prices")
-public class Price implements Serializable {
+@Table(name="comments")
+public class Comment implements Serializable {
     private int id;
-    private BigDecimal price;
     private Date date;
-    private boolean enable;
+    private String username;
+    private String text;
     private Product product;
+    private boolean enable;
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -31,20 +29,39 @@ public class Price implements Serializable {
         this.id = id;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Column(columnDefinition = "TEXT")
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="products_id")
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     @Column(columnDefinition = "BIT")
@@ -56,24 +73,15 @@ public class Price implements Serializable {
         this.enable = enable;
     }
 
-    @ManyToOne
-    @JoinColumn(name="product_id")
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
     @Override
     public String toString() {
-        return "Price{" +
+        return "Comment{" +
                 "id=" + id +
-                ", price=" + price +
                 ", date=" + date +
-                ", enable=" + enable +
+                ", username='" + username + '\'' +
+                ", text='" + text + '\'' +
                 ", product=" + product +
+                ", enable=" + enable +
                 '}';
     }
 }

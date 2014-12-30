@@ -1,6 +1,7 @@
 package com.spring.persistence.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -9,13 +10,15 @@ import static javax.persistence.GenerationType.IDENTITY;
  * Created by Andrey on 29.12.2014.
  */
 @Entity
-@Table( name = "media" )
-public class Media {
+@Table( name = "medias" )
+public class Media implements Serializable {
     private  int id;
     private long size;
     private String name;
     private Date date;
     private Product product;
+    private String data;
+    private boolean enable;
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -61,6 +64,24 @@ public class Media {
         this.product = product;
     }
 
+    @Column(columnDefinition = "TEXT")
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    @Column(columnDefinition = "BIT")
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
+
     @Override
     public String toString() {
         return "Media{" +
@@ -68,7 +89,9 @@ public class Media {
                 ", size=" + size +
                 ", name='" + name + '\'' +
                 ", date=" + date +
-                ", product.getName=" + product.getName() +
+                ", product=" + product +
+                ", data='" + data + '\'' +
+                ", enable=" + enable +
                 '}';
     }
 }

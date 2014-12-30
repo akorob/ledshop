@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `ledshop` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `ledshop`;
 -- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: ledshop
@@ -18,124 +16,387 @@ USE `ledshop`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `category`
+-- Table structure for table `categories`
 --
 
-DROP TABLE IF EXISTS `category`;
+DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `category` (
+CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
+  `name` varchar(45) NOT NULL,
   `url` varchar(400) DEFAULT NULL,
-  `active` bit(1) DEFAULT NULL,
+  `enable` tinyint(1) NOT NULL,
   `position` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `category`
+-- Dumping data for table `categories`
 --
 
-LOCK TABLES `category` WRITE;
-/*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'lamps','//','',1);
-/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (1,'lamps','//',1,1);
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `media`
+-- Table structure for table `comments`
 --
 
-DROP TABLE IF EXISTS `media`;
+DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `media` (
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `position` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `products_id` int(11) NOT NULL,
+  `enable` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_comments_products1_idx` (`products_id`),
+  CONSTRAINT `fk_comments_products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comments`
+--
+
+LOCK TABLES `comments` WRITE;
+/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `customers`
+--
+
+DROP TABLE IF EXISTS `customers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `customers` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `phone` varchar(45) NOT NULL,
+  `orders_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_customers_orders1_idx` (`orders_id`),
+  CONSTRAINT `fk_customers_orders1` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customers`
+--
+
+LOCK TABLES `customers` WRITE;
+/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `delivery_options`
+--
+
+DROP TABLE IF EXISTS `delivery_options`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `delivery_options` (
+  `id` int(11) NOT NULL,
+  `price_start` varchar(45) NOT NULL,
+  `price_end` varchar(45) NOT NULL,
+  `delivery_types_id` int(11) NOT NULL,
+  `price` decimal(18,2) NOT NULL,
+  `enable` tinyint(1) NOT NULL,
+  `description` varchar(300) DEFAULT NULL,
+  `position` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_delivery_options_delivery_types1_idx` (`delivery_types_id`),
+  CONSTRAINT `fk_delivery_options_delivery_types1` FOREIGN KEY (`delivery_types_id`) REFERENCES `delivery_types` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `delivery_options`
+--
+
+LOCK TABLES `delivery_options` WRITE;
+/*!40000 ALTER TABLE `delivery_options` DISABLE KEYS */;
+/*!40000 ALTER TABLE `delivery_options` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `delivery_types`
+--
+
+DROP TABLE IF EXISTS `delivery_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `delivery_types` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `enable` tinyint(1) NOT NULL,
+  `description` varchar(300) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
+  `orders_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_delivery_types_orders1_idx` (`orders_id`),
+  CONSTRAINT `fk_delivery_types_orders1` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `delivery_types`
+--
+
+LOCK TABLES `delivery_types` WRITE;
+/*!40000 ALTER TABLE `delivery_types` DISABLE KEYS */;
+/*!40000 ALTER TABLE `delivery_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `medias`
+--
+
+DROP TABLE IF EXISTS `medias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `medias` (
   `id` int(11) NOT NULL,
   `size` bigint(20) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `product_id` int(11) NOT NULL,
+  `data` text,
+  `enable` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_media_product1_idx` (`product_id`),
-  CONSTRAINT `fk_media_product1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_media_product1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `media`
+-- Dumping data for table `medias`
 --
 
-LOCK TABLES `media` WRITE;
-/*!40000 ALTER TABLE `media` DISABLE KEYS */;
-/*!40000 ALTER TABLE `media` ENABLE KEYS */;
+LOCK TABLES `medias` WRITE;
+/*!40000 ALTER TABLE `medias` DISABLE KEYS */;
+/*!40000 ALTER TABLE `medias` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `photo`
+-- Table structure for table `order_details`
 --
 
-DROP TABLE IF EXISTS `photo`;
+DROP TABLE IF EXISTS `order_details`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `photo` (
+CREATE TABLE `order_details` (
+  `id` int(11) NOT NULL,
+  `price` decimal(18,2) NOT NULL,
+  `products_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_order_details_products1_idx` (`products_id`),
+  CONSTRAINT `fk_order_details_products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_details`
+--
+
+LOCK TABLES `order_details` WRITE;
+/*!40000 ALTER TABLE `order_details` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `order_details_id` int(11) NOT NULL,
+  `order_uuid` varchar(32) NOT NULL,
+  `pin` int(11) NOT NULL,
+  `comment` varchar(300) DEFAULT NULL,
+  `date` datetime NOT NULL,
+  `close_date` datetime DEFAULT NULL,
+  `price` decimal(18,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_orders_order_details1_idx` (`order_details_id`),
+  CONSTRAINT `fk_orders_order_details1` FOREIGN KEY (`order_details_id`) REFERENCES `order_details` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parameters`
+--
+
+DROP TABLE IF EXISTS `parameters`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parameters` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `enable` tinyint(1) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parameters`
+--
+
+LOCK TABLES `parameters` WRITE;
+/*!40000 ALTER TABLE `parameters` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parameters` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `parametrs_products`
+--
+
+DROP TABLE IF EXISTS `parametrs_products`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parametrs_products` (
+  `id` int(11) NOT NULL,
+  `products_id` int(11) NOT NULL,
+  `parameters_id` int(11) NOT NULL,
+  `value` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_parametrs_products_products1_idx` (`products_id`),
+  KEY `fk_parametrs_products_parameters1_idx` (`parameters_id`),
+  CONSTRAINT `fk_parametrs_products_parameters1` FOREIGN KEY (`parameters_id`) REFERENCES `parameters` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_parametrs_products_products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `parametrs_products`
+--
+
+LOCK TABLES `parametrs_products` WRITE;
+/*!40000 ALTER TABLE `parametrs_products` DISABLE KEYS */;
+/*!40000 ALTER TABLE `parametrs_products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `payment_types`
+--
+
+DROP TABLE IF EXISTS `payment_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `payment_types` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `enable` tinyint(1) NOT NULL,
+  `position` int(11) NOT NULL,
+  `description` varchar(300) DEFAULT NULL,
+  `orders_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_payment_types_orders1_idx` (`orders_id`),
+  CONSTRAINT `fk_payment_types_orders1` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payment_types`
+--
+
+LOCK TABLES `payment_types` WRITE;
+/*!40000 ALTER TABLE `payment_types` DISABLE KEYS */;
+/*!40000 ALTER TABLE `payment_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `photos`
+--
+
+DROP TABLE IF EXISTS `photos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `photos` (
   `id` int(11) NOT NULL,
   `size` bigint(20) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `product_id` int(11) NOT NULL,
+  `data` text,
+  `position` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_photo_product1_idx` (`product_id`),
-  CONSTRAINT `fk_photo_product1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_photo_product1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `photo`
+-- Dumping data for table `photos`
 --
 
-LOCK TABLES `photo` WRITE;
-/*!40000 ALTER TABLE `photo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `photo` ENABLE KEYS */;
+LOCK TABLES `photos` WRITE;
+/*!40000 ALTER TABLE `photos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `photos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `price`
+-- Table structure for table `prices`
 --
 
-DROP TABLE IF EXISTS `price`;
+DROP TABLE IF EXISTS `prices`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `price` (
+CREATE TABLE `prices` (
   `id` int(11) NOT NULL,
   `price` decimal(18,2) NOT NULL,
   `product_id` int(11) NOT NULL,
   `date` datetime NOT NULL,
-  `active` bit(1) DEFAULT NULL,
+  `enable` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_prices_product1_idx` (`product_id`),
-  CONSTRAINT `fk_prices_product1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_prices_product1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `price`
+-- Dumping data for table `prices`
 --
 
-LOCK TABLES `price` WRITE;
-/*!40000 ALTER TABLE `price` DISABLE KEYS */;
-/*!40000 ALTER TABLE `price` ENABLE KEYS */;
+LOCK TABLES `prices` WRITE;
+/*!40000 ALTER TABLE `prices` DISABLE KEYS */;
+/*!40000 ALTER TABLE `prices` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `product`
+-- Table structure for table `products`
 --
 
-DROP TABLE IF EXISTS `product`;
+DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `product` (
+CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `sku` varchar(45) DEFAULT NULL,
@@ -147,18 +408,47 @@ CREATE TABLE `product` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_product_category_idx` (`category_id`),
-  CONSTRAINT `fk_product_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_product_category` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `product`
+-- Dumping data for table `products`
 --
 
-LOCK TABLES `product` WRITE;
-/*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'tiny lamp','111',1,'foo','fooo','2014-12-29 12:42:00',1),(2,'medium lamp','112',2,'foo','fooo','2014-12-29 12:42:00',1),(3,'big lamp','113',3,'foo','fooo','2014-12-29 12:42:00',1);
-/*!40000 ALTER TABLE `product` ENABLE KEYS */;
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'tiny lamp','111',1,'foo','fooo','2014-12-29 12:42:00',1),(2,'medium lamp','112',2,'foo','fooo','2014-12-29 12:42:00',1),(3,'big lamp','113',3,'foo','fooo','2014-12-29 12:42:00',1);
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `reviews`
+--
+
+DROP TABLE IF EXISTS `reviews`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reviews` (
+  `id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `products_id` int(11) NOT NULL,
+  `enable` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_reviews_products1_idx` (`products_id`),
+  CONSTRAINT `fk_reviews_products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reviews`
+--
+
+LOCK TABLES `reviews` WRITE;
+/*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reviews` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -170,4 +460,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-29 13:33:20
+-- Dump completed on 2014-12-30 11:36:57
