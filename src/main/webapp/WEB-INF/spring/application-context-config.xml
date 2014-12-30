@@ -23,10 +23,17 @@
 	in the ${webappRoot}/WEB-INF/resources/ directory -->
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 	
-	<mvc:view-controller path="/" view-name="/resources/index.html"/>
+	<mvc:view-controller path="/" view-name="/resources/start.html"/>
 
 	<!-- Saves a locale change using a cookie -->
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
+
+	<!--&lt;!&ndash; Default to DefaultSpringController &ndash;&gt;
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="defaultHandler" ref="defaultSpringController"/>
+	</bean>
+-->
+
 
 	<!-- Application Message Bundle -->
 	<!--<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

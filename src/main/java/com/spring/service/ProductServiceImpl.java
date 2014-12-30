@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Andrey on 29.12.2014.
  */
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductDao productDao;
 
@@ -27,9 +27,18 @@ public class ProductServiceImpl implements ProductService{
 
 
     @Override
-    public List<ProductDto> findAll() {
+    public List<ProductDto> getAll() {
         List <ProductDto> list = new ArrayList<>();
         for (Product p:productDao.getAll()){
+            list.add(new ProductDto(p));
+        }
+        return list;
+    }
+
+    @Override
+    public List<ProductDto> getEnable() {
+        List <ProductDto> list = new ArrayList<>();
+        for (Product p:productDao.getEnable()){
             list.add(new ProductDto(p));
         }
         return list;

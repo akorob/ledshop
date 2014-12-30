@@ -7,11 +7,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Created by Andrey on 29.12.2014.
+ * Created by Andrey on 30.12.2014.
  */
 public interface ProductService {
     @Transactional
     void save(Product guest);
 
-    List<ProductDto> findAll();
+    List<ProductDto> getAll();
+
+    List<ProductDto> getEnable();
 }

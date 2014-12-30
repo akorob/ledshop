@@ -18,7 +18,7 @@ package com.spring.controllers;
     import java.util.List;
 
     @Controller
-    @RequestMapping("/test")
+    @RequestMapping("/")
     public class TestController {
 
         private static final Logger log = LoggerFactory.

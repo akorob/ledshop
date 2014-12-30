@@ -24,7 +24,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @RequestMapping(value="/getEnable", method = RequestMethod.GET)
-    public ResponseEntity getAll() {
+    public ResponseEntity getEnable() {
         List<CategoryDto> list = categoryService.getEnable();
         return new ResponseEntity(list, HttpStatus.OK);
     }
