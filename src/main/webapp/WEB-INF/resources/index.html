@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html data-ng-app="ledshop">
 <head lang="en">
+    <base href="/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | E-Shopper</title>
+    <link href="/resources/lib/angular/angular-csp.css" rel="stylesheet">
     <link href="/resources/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="/resources/lib/css/main.css" rel="stylesheet">
@@ -17,25 +19,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">-->
 </head><!--/head-->
-<body data-ng-cloack="">
-
-
-<!--
-
-<div data-ng-controller="NavController">
-
-    <h2>Main page</h2>
-    <h4>{{message}}</h4>
-    <a href="#/main">main</a>
-    <a href="#/login">login</a>
-    <a href="#/guests">guests</a>
-
-</div>
-
-<div data-ng-view></div>
--->
-
-
+<body data-ng-cloak="">
 <header id="header"><!--header-->
     <div class="header_top"><!--header_top-->
         <div class="container">
@@ -114,7 +98,7 @@
     </div><!--/header-bottom-->
 </header><!--/header-->
 
-<section >
+<section>
     <div class="container" >
         <div class="row">
             <div class="col-sm-3" data-ng-controller="LeftMenuController" >
@@ -122,7 +106,7 @@
                     <div class="panel-group category-products"><!--category-productsr-->
                         <div class="panel panel-default" data-ng-repeat="c in categories">
                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#" ng-bind="c.name"></a></h4>
+                                <h4 class="panel-title"><a href="#">{{c.name}}</a></h4>
                             </div>
                         </div>
                     </div><!--/category-products-->
@@ -132,18 +116,12 @@
 
                 </div>
             </div>
-
-            <div class="col-sm-9 padding-right" data-ng-view>
-
-
-
-            </div>
+            <div class="col-sm-9 padding-right" data-ng-view=""></div>
         </div>
     </div>
 </section>
 
 <footer id="footer"><!--Footer-->
-
     <div class="footer-widget">
         <div class="container">
             <div class="row">

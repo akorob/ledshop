@@ -3,7 +3,7 @@
  */
 'use strict'
 
-app.run(function ($rootScope, $http, $location, Base64Service, AuthenticationService, localStorageService) {
+app.run(function ($rootScope, $http, $location, localStorageService) {
 
 
 });
