@@ -12,7 +12,7 @@ import java.util.List;
  * Created by Andrey on 29.12.2014.
  */
 @Component
-public class ProductDaoImpl implements ProductDao {
+public class ProductDaoImpl implements  ProductDao {
     @PersistenceContext
     private EntityManager em;
 
@@ -33,7 +33,16 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public List<Product> getAll() {
         TypedQuery<Product> query = em.createQuery(
-                "SELECT p FROM Product p ORDER BY p.id", Product.class);
+                "SELECT p FROM Product p ORDER BY p.position", Product.class);
+        List<Product> list = query.getResultList();
+
+        return list ;
+    }
+
+    @Override
+    public List<Product> getEnable() {
+        TypedQuery<Product> query = em.createQuery(
+                "SELECT p FROM Product p WHERE p.enable=true ORDER BY p.position", Product.class);
         List<Product> list = query.getResultList();
 
         return list ;

@@ -21,6 +21,8 @@ public class Product implements Serializable {
     private  String shortDescr;
     private String longDescr;
     private Date date;
+    private boolean enable;
+    private boolean instock;
     private Category category;
     private Collection<Media> medias = new HashSet<>();
     private Collection<Photo> photos = new HashSet<>();
@@ -163,6 +165,24 @@ public class Product implements Serializable {
         this.parameterOfProductCollection = parameterOfProductCollection;
     }
 
+    @Column(columnDefinition = "BIT")
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
+
+    @Column(columnDefinition = "BIT")
+    public boolean isInstock() {
+        return instock;
+    }
+
+    public void setInstock(boolean instock) {
+        this.instock = instock;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -173,7 +193,16 @@ public class Product implements Serializable {
                 ", shortDescr='" + shortDescr + '\'' +
                 ", longDescr='" + longDescr + '\'' +
                 ", date=" + date +
+                ", enable=" + enable +
+                ", instock=" + instock +
                 ", category=" + category +
+                ", medias=" + medias +
+                ", photos=" + photos +
+                ", prices=" + prices +
+                ", reviews=" + reviews +
+                ", orderDetails=" + orderDetails +
+                ", comments=" + comments +
+                ", parameterOfProductCollection=" + parameterOfProductCollection +
                 '}';
     }
 }
