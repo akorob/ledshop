@@ -10,10 +10,9 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class DefaultSpringController {
-
+    //Handle all unmapped urls
    @RequestMapping("*")
     public String forwardRequest(final HttpServletRequest request) {
-       // return "forward:/legacy" + request.getRequestURI();
         return "/resources/start.html";
     }
 
