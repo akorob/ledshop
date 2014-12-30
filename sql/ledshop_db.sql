@@ -16,6 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `application`
+--
+
+DROP TABLE IF EXISTS `application`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `application` (
+  `id` int(11) NOT NULL,
+  `version` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `application`
+--
+
+LOCK TABLES `application` WRITE;
+/*!40000 ALTER TABLE `application` DISABLE KEYS */;
+/*!40000 ALTER TABLE `application` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `categories`
 --
 
@@ -38,7 +61,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'lamps','//',1,1);
+INSERT INTO `categories` VALUES (1,'Лампы','//',1,1),(2,'Прожекторы','//',1,2),(3,'Светильники','//',1,4),(4,'Комплектующие','//',1,3),(5,'Ремонт','//',0,5);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,7 +75,6 @@ DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
   `date` datetime NOT NULL,
-  `position` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `text` text NOT NULL,
   `products_id` int(11) NOT NULL,
@@ -85,6 +107,7 @@ CREATE TABLE `customers` (
   `email` varchar(100) DEFAULT NULL,
   `phone` varchar(45) NOT NULL,
   `orders_id` int(11) NOT NULL,
+  `address` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_customers_orders1_idx` (`orders_id`),
   CONSTRAINT `fk_customers_orders1` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -109,8 +132,8 @@ DROP TABLE IF EXISTS `delivery_options`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `delivery_options` (
   `id` int(11) NOT NULL,
-  `price_start` varchar(45) NOT NULL,
-  `price_end` varchar(45) NOT NULL,
+  `price_start` decimal(18,2) NOT NULL,
+  `price_end` decimal(18,2) NOT NULL,
   `delivery_types_id` int(11) NOT NULL,
   `price` decimal(18,2) NOT NULL,
   `enable` tinyint(1) NOT NULL,
@@ -233,6 +256,7 @@ CREATE TABLE `orders` (
   `date` datetime NOT NULL,
   `close_date` datetime DEFAULT NULL,
   `price` decimal(18,2) NOT NULL,
+  `delivery_price` decimal(18,2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_orders_order_details1_idx` (`order_details_id`),
   CONSTRAINT `fk_orders_order_details1` FOREIGN KEY (`order_details_id`) REFERENCES `order_details` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -358,6 +382,7 @@ CREATE TABLE `photos` (
 
 LOCK TABLES `photos` WRITE;
 /*!40000 ALTER TABLE `photos` DISABLE KEYS */;
+INSERT INTO `photos` VALUES (1,25,'orig','2014-12-30 15:20:31',1,'',1),(2,25,'large','2014-12-30 15:20:31',3,NULL,1),(3,25,'large','2014-12-30 15:20:31',2,NULL,1),(4,25,'ge','2014-12-30 15:20:31',2,NULL,1),(5,25,'orig','2014-12-30 15:20:31',1,NULL,1),(6,25,'large','2014-12-30 15:20:31',3,NULL,1),(7,25,'large','2014-12-30 15:20:31',2,NULL,1),(8,25,'ge','2014-12-30 15:20:31',2,NULL,1),(9,25,'orig','2014-12-30 15:20:31',1,NULL,1),(10,25,'large','2014-12-30 15:20:31',3,NULL,1),(11,25,'large','2014-12-30 15:20:31',2,NULL,1),(12,25,'ge','2014-12-30 15:20:31',2,NULL,1),(13,25,'orig','2014-12-30 15:20:31',1,NULL,1),(14,25,'large','2014-12-30 15:20:31',3,NULL,1),(15,25,'large','2014-12-30 15:20:31',2,NULL,1);
 /*!40000 ALTER TABLE `photos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -399,12 +424,13 @@ DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `sku` varchar(45) DEFAULT NULL,
-  `position` int(11) DEFAULT NULL,
+  `sku` varchar(45) NOT NULL,
+  `position` int(11) NOT NULL,
   `shot_descr` varchar(255) DEFAULT NULL,
   `long_descr` text,
-  `date` datetime DEFAULT NULL,
+  `date` datetime NOT NULL,
   `category_id` int(11) NOT NULL,
+  `version` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_product_category_idx` (`category_id`),
@@ -418,7 +444,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'tiny lamp','111',1,'foo','fooo','2014-12-29 12:42:00',1),(2,'medium lamp','112',2,'foo','fooo','2014-12-29 12:42:00',1),(3,'big lamp','113',3,'foo','fooo','2014-12-29 12:42:00',1);
+INSERT INTO `products` VALUES (1,'Просто лампочка E27','111',1,'foo','fooo','2014-12-29 12:42:00',1,0),(2,'Просто лампочка E27','112',2,'foo','fooo','2014-12-29 12:42:00',1,0),(3,'Очень крутая лампочка E27 10W','113',3,'foo','fooo','2014-12-29 12:42:00',1,0),(4,'Хуйня какаето, Е27','114',4,'foo','fooo','2014-12-29 12:42:00',1,0),(5,'Просто лампочка E27','115',5,'foo','fooo','2014-12-29 12:42:00',1,0),(6,'Очень крутая лампочка E27 10W','116',6,'foo','fooo','2014-12-29 12:42:00',1,0),(7,'Очень крутая лампочка E27 10W','116',1,'foo','fooo','2014-12-29 12:42:00',2,0),(8,'Очень крутая лампочка E27 10W','116',2,'foo','fooo','2014-12-29 12:42:00',2,0),(9,'Очень крутая лампочка E27 10W','116',1,'foo','fooo','2014-12-29 12:42:00',4,0),(10,'Очень крутая лампочка E27 10W','116',2,'foo','fooo','2014-12-29 12:42:00',4,0),(11,'Очень крутая лампочка E27 10W','116',3,'foo','fooo','2014-12-29 12:42:00',4,0),(12,'Очень крутая лампочка E27 10W','116',1,'foo','fooo','2014-12-29 12:42:00',3,0),(13,'Очень крутая лампочка E27 10W','116',2,'foo','fooo','2014-12-29 12:42:00',3,0),(14,'Очень крутая лампочка E27 10W','116',3,'foo','fooo','2014-12-29 12:42:00',3,0),(15,'Очень крутая лампочка E27 10W','116',4,'foo','fooo','2014-12-29 12:42:00',3,0),(16,'Очень крутая лампочка E27 10W','116',5,'foo','fooo','2014-12-29 12:42:00',3,0),(17,'Очень крутая лампочка E27 10W','116',4,'foo','fooo','2014-12-29 12:42:00',4,0),(18,'Очень крутая лампочка E27 10W','116',3,'foo','fooo','2014-12-29 12:42:00',2,0),(19,'Очень крутая лампочка E27 10W','116',4,'foo','fooo','2014-12-29 12:42:00',2,0);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -460,4 +486,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-30 11:36:57
+-- Dump completed on 2014-12-30 18:16:53

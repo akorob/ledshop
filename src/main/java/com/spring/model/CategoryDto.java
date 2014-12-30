@@ -1,26 +1,31 @@
-package com.spring.persistence.domain;
+package com.spring.model;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import com.spring.persistence.domain.Category;
+import com.spring.persistence.domain.Product;
+
 import java.util.Collection;
 import java.util.HashSet;
-import static javax.persistence.GenerationType.IDENTITY;
 
 /**
- * Created by Andrey on 29.12.2014.
+ * Created by Andrey on 30.12.2014.
  */
-@Entity
-@Table( name = "categories" )
-public class Category implements Serializable {
+public class CategoryDto {
     private int id;
     private String name;
     private String url;
     private boolean enable;
     private int position;
-    private Collection<Product> products = new HashSet<>();
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
+    public CategoryDto(Category category){
+        this.id = category.getId();
+        this.name = category.getName();
+        this.url = category.getUrl();
+        this.enable = category.isEnable();
+        this.position = category.getPosition();
+    }
+
+    public CategoryDto(){}
+
     public int getId() {
         return id;
     }
@@ -45,37 +50,29 @@ public class Category implements Serializable {
         this.url = url;
     }
 
-    @Column(columnDefinition = "BIT")
     public boolean isEnable() {
         return enable;
     }
 
-    public void setEnable(boolean isActive) {
-        this.enable = isActive;
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 
     public int getPosition() {
         return position;
     }
 
-    public void setPosition(int position) {this.position = position;}
-
-    @OneToMany(mappedBy = "category")
-    public Collection<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(Collection<Product> products) {
-        this.products = products;
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "CategoryDto{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", url='" + url + '\'' +
-                ", isActive=" + enable +
+                ", enable=" + enable +
                 ", position=" + position +
                 '}';
     }

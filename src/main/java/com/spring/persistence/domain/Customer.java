@@ -18,6 +18,7 @@ public class Customer implements Serializable {
     private String email;
     private String phone;
     private Order order;
+    private String address;
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -63,6 +64,14 @@ public class Customer implements Serializable {
         this.order = order;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -71,6 +80,7 @@ public class Customer implements Serializable {
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", order=" + order +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

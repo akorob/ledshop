@@ -20,6 +20,7 @@ public class Order implements Serializable{
     private Date date;
     private Date closeDate;
     private BigDecimal price;
+    private BigDecimal deliveryPrice;
     private OrderDetail orderDetail;
     private Collection<PaymentType> paymentTypes = new HashSet<>();
     private Collection<DeliveryType> deliveryTypes = new HashSet<>();
@@ -84,6 +85,16 @@ public class Order implements Serializable{
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
+    @Column(name="delivery_price")
+    public BigDecimal getDeliveryPrice() {
+        return deliveryPrice;
+    }
+
+    public void setDeliveryPrice(BigDecimal deliveryPrice) {
+        this.deliveryPrice = deliveryPrice;
+    }
+
 
     @ManyToOne
     @JoinColumn(name="order_details_id")
