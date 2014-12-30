@@ -3,7 +3,7 @@
  */
 'use strict'
 app.service('ProductService', function ($http, $q) {
-    this.getGuests = function () {
+    this.get = function () {
         var d = $q.defer();
 
         $http.get('product/getEnable')

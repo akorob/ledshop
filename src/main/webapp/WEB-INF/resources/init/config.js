@@ -14,6 +14,7 @@ app.config([ '$routeProvider', '$httpProvider', 'localStorageServiceProvider',
 
     $routeProvider
         .when('/main', {
+            controller: 'MainController',
             templateUrl: 'resources/partials/main.html'
         })
         .when('/details', {
@@ -28,8 +29,6 @@ app.config([ '$routeProvider', '$httpProvider', 'localStorageServiceProvider',
             controller: 'CartController',
             templateUrl: 'resources/partials/cart.html'
         })
-
         .otherwise({ redirectTo : "/main"});
-
 
 }]);
