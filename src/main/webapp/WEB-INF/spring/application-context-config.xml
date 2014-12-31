@@ -24,15 +24,20 @@
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 
 
-<!--	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/resources/"/>
-		<property name="suffix" value=".html"/>
-	</bean>-->
 
-<!--	<mvc:default-servlet-handler/>-->
-<!--	<mvc:default-servlet-handler default-servlet-name="defaultSpringServlet"/>-->
+	<bean id="errorUrlBean" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/**">defaultController</prop>
+			</props>
+		</property>
+	</bean>
 
-	<mvc:view-controller path="/" view-name="/resources/start.html"/>
+	<bean id="defaultController" class="com.spring.controllers.DefaultController"/>
+
+
+
+	<mvc:view-controller path="/" view-name="/resources/index.html"/>
 
 	<!-- Saves a locale change using a cookie -->
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />

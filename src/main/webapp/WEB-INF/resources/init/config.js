@@ -31,6 +31,6 @@ app.config([ '$routeProvider', '$httpProvider', 'localStorageServiceProvider', '
         })
         .when('/404', {
             templateUrl: 'resources/partials/404.html'
-        })
-        .otherwise({ redirectTo : "/404"});
+        });
+      //  .otherwise({ redirectTo : "/404"});
 }]);
