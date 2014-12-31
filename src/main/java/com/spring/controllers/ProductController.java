@@ -32,6 +32,12 @@ public class ProductController{
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
+    @RequestMapping(value="/getFavourite", method = RequestMethod.GET)
+    public ResponseEntity getFavourite() {
+        List<ProductDto> list = productService.getFavourite();
+        return new ResponseEntity(list, HttpStatus.OK);
+    }
+
     @RequestMapping(value="/get", method = RequestMethod.GET)
     public ResponseEntity get()  {
         List<ProductDto> list = productService.getAll();
