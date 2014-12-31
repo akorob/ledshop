@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `ledshop` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `ledshop`;
 -- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: ledshop
@@ -181,6 +183,33 @@ CREATE TABLE `delivery_types` (
 LOCK TABLES `delivery_types` WRITE;
 /*!40000 ALTER TABLE `delivery_types` DISABLE KEYS */;
 /*!40000 ALTER TABLE `delivery_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `favorite_products`
+--
+
+DROP TABLE IF EXISTS `favorite_products`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `favorite_products` (
+  `id` int(11) NOT NULL,
+  `position` int(11) NOT NULL,
+  `products_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_favorite_products_products1_idx` (`products_id`),
+  CONSTRAINT `fk_favorite_products_products1` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `favorite_products`
+--
+
+LOCK TABLES `favorite_products` WRITE;
+/*!40000 ALTER TABLE `favorite_products` DISABLE KEYS */;
+INSERT INTO `favorite_products` VALUES (1,2,3),(2,1,7),(3,3,10),(4,4,13),(5,5,19),(6,6,4);
+/*!40000 ALTER TABLE `favorite_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -431,6 +460,8 @@ CREATE TABLE `products` (
   `date` datetime NOT NULL,
   `category_id` int(11) NOT NULL,
   `version` int(11) NOT NULL,
+  `enable` tinyint(1) NOT NULL,
+  `instock` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_product_category_idx` (`category_id`),
@@ -444,7 +475,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Просто лампочка E27','111',1,'foo','fooo','2014-12-29 12:42:00',1,0),(2,'Просто лампочка E27','112',2,'foo','fooo','2014-12-29 12:42:00',1,0),(3,'Очень крутая лампочка E27 10W','113',3,'foo','fooo','2014-12-29 12:42:00',1,0),(4,'Хуйня какаето, Е27','114',4,'foo','fooo','2014-12-29 12:42:00',1,0),(5,'Просто лампочка E27','115',5,'foo','fooo','2014-12-29 12:42:00',1,0),(6,'Очень крутая лампочка E27 10W','116',6,'foo','fooo','2014-12-29 12:42:00',1,0),(7,'Очень крутая лампочка E27 10W','116',1,'foo','fooo','2014-12-29 12:42:00',2,0),(8,'Очень крутая лампочка E27 10W','116',2,'foo','fooo','2014-12-29 12:42:00',2,0),(9,'Очень крутая лампочка E27 10W','116',1,'foo','fooo','2014-12-29 12:42:00',4,0),(10,'Очень крутая лампочка E27 10W','116',2,'foo','fooo','2014-12-29 12:42:00',4,0),(11,'Очень крутая лампочка E27 10W','116',3,'foo','fooo','2014-12-29 12:42:00',4,0),(12,'Очень крутая лампочка E27 10W','116',1,'foo','fooo','2014-12-29 12:42:00',3,0),(13,'Очень крутая лампочка E27 10W','116',2,'foo','fooo','2014-12-29 12:42:00',3,0),(14,'Очень крутая лампочка E27 10W','116',3,'foo','fooo','2014-12-29 12:42:00',3,0),(15,'Очень крутая лампочка E27 10W','116',4,'foo','fooo','2014-12-29 12:42:00',3,0),(16,'Очень крутая лампочка E27 10W','116',5,'foo','fooo','2014-12-29 12:42:00',3,0),(17,'Очень крутая лампочка E27 10W','116',4,'foo','fooo','2014-12-29 12:42:00',4,0),(18,'Очень крутая лампочка E27 10W','116',3,'foo','fooo','2014-12-29 12:42:00',2,0),(19,'Очень крутая лампочка E27 10W','116',4,'foo','fooo','2014-12-29 12:42:00',2,0);
+INSERT INTO `products` VALUES (1,'Просто лампочка E27','111',1,'foo','fooo','2014-12-29 12:42:00',1,0,1,1),(2,'Просто лампочка E27','112',2,'foo','fooo','2014-12-29 12:42:00',1,0,1,1),(3,'Очень крутая лампочка E27 10W','113',3,'foo','fooo','2014-12-29 12:42:00',1,0,1,1),(4,'Хуйня какаето, Е27','114',4,'foo','fooo','2014-12-29 12:42:00',1,0,1,1),(5,'Просто лампочка E27','115',5,'foo','fooo','2014-12-29 12:42:00',1,0,1,1),(6,'Очень крутая лампочка E27 10W','116',6,'foo','fooo','2014-12-29 12:42:00',1,0,0,1),(7,'Очень крутая лампочка E27 10W','116',1,'foo','fooo','2014-12-29 12:42:00',2,0,1,1),(8,'Очень крутая лампочка E27 10W','116',2,'foo','fooo','2014-12-29 12:42:00',2,0,1,1),(9,'Очень крутая лампочка E27 10W','116',1,'foo','fooo','2014-12-29 12:42:00',4,0,1,1),(10,'Очень крутая лампочка E27 10W','116',2,'foo','fooo','2014-12-29 12:42:00',4,0,1,1),(11,'Очень крутая лампочка E27 10W','116',3,'foo','fooo','2014-12-29 12:42:00',4,0,1,1),(12,'Очень крутая лампочка E27 10W','116',1,'foo','fooo','2014-12-29 12:42:00',3,0,1,1),(13,'Очень крутая лампочка E27 10W','116',2,'foo','fooo','2014-12-29 12:42:00',3,0,1,1),(14,'Очень крутая лампочка E27 10W','116',3,'foo','fooo','2014-12-29 12:42:00',3,0,1,1),(15,'Очень крутая лампочка E27 10W','116',4,'foo','fooo','2014-12-29 12:42:00',3,0,1,1),(16,'Очень крутая лампочка E27 10W','116',5,'foo','fooo','2014-12-29 12:42:00',3,0,1,1),(17,'Очень крутая лампочка E27 10W','116',4,'foo','fooo','2014-12-29 12:42:00',4,0,1,1),(18,'Очень крутая лампочка E27 10W','116',3,'foo','fooo','2014-12-29 12:42:00',2,0,1,1),(19,'Очень крутая лампочка E27 10W','116',4,'foo','fooo','2014-12-29 12:42:00',2,0,1,1);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -486,4 +517,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-30 18:16:53
+-- Dump completed on 2014-12-31 16:17:21
