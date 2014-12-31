@@ -13,10 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-
-@RestController
 @RequestMapping("/product")
-public class ProductController {
+@RestController
+public class ProductController{
 
     @Autowired
     private ProductService productService;
@@ -33,12 +32,14 @@ public class ProductController {
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
- @RequestMapping(value="/get", method = RequestMethod.GET)
+    @RequestMapping(value="/get", method = RequestMethod.GET)
     public ResponseEntity get()  {
         List<ProductDto> list = productService.getAll();
  //     return new ResponseEntity("ffffff", HttpStatus.NOT_ACCEPTABLE);
         return new ResponseEntity(list, HttpStatus.OK);
     }
+
+
 
 
 

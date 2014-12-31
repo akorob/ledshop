@@ -70,6 +70,11 @@
 		Handles all requests into the application 
 	-->
 	<servlet>
+		<servlet-name>defaultSpringServlet</servlet-name>
+		<servlet-class>com.spring.controllers.DefaultSpringController</servlet-class>
+	</servlet>
+
+	<servlet>
 		<servlet-name>model</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
@@ -83,4 +88,16 @@
 		<servlet-name>model</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+<!--
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/resources/start.html</location>
+	</error-page>
+-->
+
+
+
+
 </web-app>

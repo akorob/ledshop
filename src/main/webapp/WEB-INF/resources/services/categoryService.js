@@ -6,7 +6,7 @@ app.service('CategoryService', function ($http, $q) {
     this.get = function () {
         var d = $q.defer();
 
-        $http.get('category/getEnable')
+        $http.get('/category/getEnable')
             .success(function (response) {
                 d.resolve(response);
             })

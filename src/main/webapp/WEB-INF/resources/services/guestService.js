@@ -6,7 +6,7 @@ app.service('GuestService', function ($http, $q) {
     this.getGuests = function () {
         var d = $q.defer();
 
-        $http.get('product/getAll')
+        $http.get('/product/getAll')
             .success(function (response) {
                 d.resolve(response);
             })
