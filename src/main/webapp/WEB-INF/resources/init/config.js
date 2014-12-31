@@ -3,18 +3,17 @@
  */
 'use strict'
 
-app.config([ '$routeProvider', '$httpProvider', 'localStorageServiceProvider',
-    function($routeProvider, $httpProvider, localStorageServiceProvider) {
+app.config([ '$routeProvider', '$httpProvider', 'localStorageServiceProvider', '$locationProvider',
+    function($routeProvider, $httpProvider, localStorageServiceProvider, $locationProvider) {
 
     // ======= local storage configuration ========
 
     localStorageServiceProvider.prefix = 'example';
 
     // ======= router configuration =============
-
+    $locationProvider.html5Mode(true);
     $routeProvider
-        .when('/main', {
-            controller: 'MainController',
+        .when('/', {
             templateUrl: 'resources/partials/main.html'
         })
         .when('/details', {
@@ -29,6 +28,8 @@ app.config([ '$routeProvider', '$httpProvider', 'localStorageServiceProvider',
             controller: 'CartController',
             templateUrl: 'resources/partials/cart.html'
         })
-        .otherwise({ redirectTo : "/main"});
-
+        .when('/404', {
+            templateUrl: 'resources/partials/404.html'
+        })
+        .otherwise({ redirectTo : "/404"});
 }]);
