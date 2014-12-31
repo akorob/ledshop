@@ -39,10 +39,11 @@ System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                        HttpServletResponse response)throws ServletException, IOException {
         System.out.println("Geeeeeeeeeeeeeeeeeeeeeeeet") ;
 
-       RequestDispatcher view = request.getRequestDispatcher("/resources/start.html");
+     //  RequestDispatcher view = request.getRequestDispatcher("/resources/start.html");
      //  view.forward(request, response);
        // System.out.println(request.getContextPath()) ;
-       // response.sendRedirect(request.getContextPath() + "/resources/start.html");
+        response.setContentType("text/html");
+       response.sendRedirect(request.getContextPath() + "/resources/start.html");
 
     }
 

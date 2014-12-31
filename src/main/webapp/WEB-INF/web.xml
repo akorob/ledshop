@@ -25,6 +25,7 @@
 			/WEB-INF/spring/application-context-config.xml
 			/WEB-INF/spring/security-context-config.xml
 			/WEB-INF/spring/persistence-context-config.xml
+			/WEB-INF/spring/interceptors.xml
 		</param-value>
 	</context-param>
 

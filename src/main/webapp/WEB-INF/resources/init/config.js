@@ -14,6 +14,7 @@ app.config([ '$routeProvider', '$httpProvider', 'localStorageServiceProvider', '
     $locationProvider.html5Mode(true);
     $routeProvider
         .when('/', {
+            controller:'MainController',
             templateUrl: 'resources/partials/main.html'
         })
         .when('/details', {
