@@ -43,4 +43,13 @@ public class ProductServiceImpl implements ProductService {
         }
         return list;
     }
+
+    @Override
+    public List<ProductDto> getFavorite() {
+        List <ProductDto> list = new ArrayList<>();
+        for (Product p:productDao.getFavorite()){
+            list.add(new ProductDto(p));
+        }
+        return list;
+    }
 }
