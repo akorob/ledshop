@@ -21,16 +21,14 @@ app.config([ '$routeProvider', '$httpProvider', 'localStorageServiceProvider', '
             controller: 'DetailsController',
             templateUrl: 'resources/partials/product-details.html'
         })
-        .when('/login', {
-            controller: 'LoginController',
-            templateUrl: 'resources/partials/login.html'
-        })
         .when('/cart', {
             controller: 'CartController',
             templateUrl: 'resources/partials/cart.html'
         })
         .when('/404', {
             templateUrl: 'resources/partials/404.html'
-        });
-      //  .otherwise({ redirectTo : "/404"});
+        })
+       // .otherwise({ redirectTo : "/404"})
+
+    ;
 }]);

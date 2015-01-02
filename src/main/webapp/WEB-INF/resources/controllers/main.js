@@ -6,11 +6,10 @@ app.controller('MainController', ['$scope','$rootScope','$location','ProductServ
     function ($scope, $rootScope, $location, ProductService) {
         log("MainController");
 
-        $scope.products = [];
-
-        ProductService.get().then(
+        $scope.favorite = [];
+        ProductService.getFavorite().then(
             function(response) {
-                $scope.products = response;
+                $scope.favorite= response;
             });
     }
 ]);
