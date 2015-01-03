@@ -1,13 +1,13 @@
 <div class="features_items" ><!--features_items-->
-    {{products}}
-<div class="col-sm-4">
+    {{favorite}}
+<div class="col-sm-4" data-ng-repeat="product in faforite">
     <div class="product-image-wrapper">
         <div class="single-products">
             <div class="productinfo text-center">
-                <img src="/resources/lib/img/items/lamp1.jpg" alt="" />
-                <h2><i class="fa fa-rub"></i> 600.00</h2>
-                <p>Просто лампочка E27</p>
-                <a href="/details" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
+                <data-ng-img src="/resources/lib/img/items/lamp1.jpg" alt="" />
+                <h2><i class="fa fa-rub"></i>{{product.price}}</h2>
+                <p>{{product.name}}</p>
+                <a data-ng-href="/details/{{product.id}}" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Подробнее</a>
             </div>
         </div>
         <div class="choose">
